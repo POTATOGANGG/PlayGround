@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="theme-color" content="#101328">
+  <title>AdVenture: Stickman Cash Grab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800;900&family=DM+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-icon">✦</span><span>AD<span class="brand-hot">VENTURE</span><small>STICKMAN CASH GRAB</small></span></div>
+      <div class="currency"><span class="coin">¢</span><b id="cash">240</b><button class="plus" id="freeCash">+</button></div>
+      <button class="sound" id="soundBtn" aria-label="Toggle sound">♫</button>
+    </header>
+    <section class="run-hud hidden" id="runHud">
+      <div class="level-pill"><span>LEVEL</span><b id="level">01</b></div>
+      <div class="progress-wrap"><div class="progress-label"><span>YOUR DESTINY</span><span id="progressText">0%</span></div><div class="progress-track"><i id="progressBar"></i><span class="progress-dot">◆</span></div></div>
+      <div class="squad-pill"><span class="squad-icon">♟</span><b id="squadCount">1</b><small>CLONES</small></div>
+    </section>
+    <div class="toast" id="toast"></div>
+    <section class="center-card intro-card" id="intro">
+      <div class="eyebrow"><i></i> 100% FREE* TO PLAY <i></i></div>
+      <h1>STICK<span>RICH</span></h1>
+      <p class="subtitle">A totally honest runner with <b>zero</b> predatory mechanics.</p>
+      <div class="hero-stats"><div><b>×1000</b><small>REALISTIC FUN</small></div><div><b>∞</b><small>AD BREAKS</small></div><div><b>0.1★</b><small>USER RATING</small></div></div>
+      <button class="big-button" id="playBtn">PLAY NOW <span>▶</span></button>
+      <p class="fineprint">*Terms apply. Fun sold separately.</p>
+      <div class="swipe-tip"><span>↔</span> DRAG TO DODGE <b>•</b> WASD / ARROWS</div>
+    </section>
+    <section class="center-card shop-card hidden" id="shop">
+      <div class="eyebrow"><i></i> THE TOTALLY FAIR STORE <i></i></div>
+      <h2>POWER UP.<br><span>PAY UP.</span></h2>
+      <p class="shop-caption">Your success is just one purchase away!</p>
+      <div class="shop-items">
+        <button class="shop-item" data-item="squad"><span class="item-icon">♟</span><span><b>Starter Squad</b><small>+5 stickbros</small></span><strong>¢<span>75</span></strong></button>
+        <button class="shop-item" data-item="boost"><span class="item-icon">⚡</span><span><b>Ad-Skipping Shoes</b><small>Start with +3 clones</small></span><strong>¢<span>100</span></strong></button>
+      </div>
+      <button class="big-button" id="continueBtn">START LEVEL <span>▶</span></button>
+      <button class="skip-shop" id="skipShop">No thanks, I enjoy being weak</button>
+    </section>
+    <section class="center-card result-card hidden" id="result">
+      <div class="eyebrow" id="resultEyebrow"><i></i> VERY ENGAGING GAMEPLAY <i></i></div>
+      <h2 id="resultTitle">SQUAD<br><span>WIPED OUT!</span></h2>
+      <p class="shop-caption" id="resultText">The boss has reviewed your performance.</p>
+      <div class="reward-box"><span>LEVEL REWARD</span><b>+¢<i id="reward">60</i></b><small>Watch an ad to double it! <span>(just kidding... mostly)</span></small></div>
+      <button class="big-button" id="nextBtn">CLAIM & CONTINUE <span>▶</span></button>
+      <button class="skip-shop" id="retryBtn">Replay level</button>
+    </section>
+    <aside class="boss-hud hidden" id="bossHud"><div class="boss-title"><span>⚠ FINAL BOSS</span><b id="bossName">THE PAYWALL</b></div><div class="boss-health"><i id="bossHealth"></i></div><div class="boss-note">TAP FAST TO DEFEAT! <span id="bossHpText">100%</span></div></aside>
+    <div class="tap-zone hidden" id="tapZone">TAP! TAP! TAP!</div>
+    <div class="bottom-hint" id="bottomHint">✦ <span>Collect multipliers. Avoid the fine print.</span> ✦</div>
+    <div class="ad-banner"><span class="ad-tag">AD</span> <b>LOW ON CLONES?</b> <span>BUY MORE →</span><button id="bannerShop">SHOP</button></div>
+    <div class="level-up hidden" id="levelUp">LEVEL UP! <span>NEW OBSTACLES UNLOCKED</span></div>
+    <div class="mobile-controls"><button id="leftBtn">‹</button><button id="rightBtn">›</button></div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
